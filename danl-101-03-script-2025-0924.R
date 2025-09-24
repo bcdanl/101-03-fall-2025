@@ -146,6 +146,9 @@ median(yy)
 
 
 
+# Accessing a Subset of a vector ------------------------------------------
+
+
 my_vector <- c(10, 20, 30, 40, 50, 60)
 
 my_vector[2]
