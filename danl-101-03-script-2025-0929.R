@@ -115,7 +115,7 @@ skim(custdata)
 
 
 custdata_young <- filter(custdata, age < 25 )
-custdata_young_pipe <- filter(age < 25 )
+custdata_young_pipe <- custdata |> filter(age < 25 )
 
 
 
