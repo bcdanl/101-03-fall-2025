@@ -72,6 +72,9 @@ logical_vec
 
 
 
+# working with data.frame -------------------------------------------------
+
+
 
 # '/Users/bchoe/Documents/custdata_rev.csv'
 
@@ -112,6 +115,10 @@ summary(custdata)
 # install.packages("skimr")  
 library(skimr)
 skim(custdata)
+
+
+
+# pipe operator -----------------------------------------------------------
 
 
 custdata_young <- filter(custdata, age < 25 )
