@@ -1,6 +1,21 @@
+
+# package -----------------------------------------------------------------
+
+
 library(tidyverse)
+
+
+
+# mpg data.frame ----------------------------------------------------------
+
+
 mpg <- ggplot2::mpg
 ?mpg
+
+
+
+
+# first ggplot ------------------------------------------------------------
 
 
 ggplot(data = mpg,
@@ -9,11 +24,19 @@ ggplot(data = mpg,
   geom_point()
 
 
+
+# fitted line with geom_smooth() ------------------------------------------
+
+
 ggplot(data = mpg,
        mapping = aes(x = displ,
                      y = hwy)) +
   geom_smooth()
 
+
+
+
+# two geometric objects in one ggplot -------------------------------------
 
 
 ggplot(data = mpg,
@@ -24,6 +47,10 @@ ggplot(data = mpg,
 
 
 
+
+# adding layers using + ---------------------------------------------------
+
+# error b/c the location of +
 ggplot(data = mpg,
        mapping = 
          aes(x = displ, 
@@ -32,6 +59,7 @@ ggplot(data = mpg,
 + geom_smooth()
 
 
+# + should be located at the end of each line when changing lines
 ggplot(data = mpg,
        mapping = 
          aes(x = displ, 
@@ -41,11 +69,19 @@ ggplot(data = mpg,
 
 
 
+# geom_smooth(method = "lm") ----------------------------------------------
+
+
 ggplot(data = mpg,
        mapping = aes(x = displ,
                      y = hwy)) +
   geom_point() +
   geom_smooth(method = "lm")
+
+
+
+# transparency with alpha -------------------------------------------------
+
 
 # alpha should be between 0 and 1
 
@@ -95,6 +131,9 @@ ggplot( data = mpg,
 
 
 
+# aesthetic mapping -------------------------------------------------------
+
+# color aesthetic mapping
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -103,6 +142,7 @@ ggplot( data = mpg,
   geom_point()
 
 
+# shape aesthetic mapping
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -111,6 +151,7 @@ ggplot( data = mpg,
   geom_point()
 
 
+# size aesthetic mapping
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -118,6 +159,8 @@ ggplot( data = mpg,
               size = class) ) + 
   geom_point()
 
+
+# setting color aesthetic, manually
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -132,7 +175,7 @@ ggplot( data = mpg,
 
 
 # Caution: Error: object 'blue' not found
-# quote color name when manually setting it to color
+  # Quote color name when manually setting it to color
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -153,6 +196,7 @@ ggplot(data = mpg,
              y = hwy) ) + 
   geom_smooth(color = "darkorange") 
 
+# fill mapping in geom_smooth() is for the color of ribbon
 ggplot(data = mpg,
        mapping = 
          aes(x = displ, 
@@ -160,6 +204,8 @@ ggplot(data = mpg,
   geom_smooth(color = "darkorange",
               fill = "darkorange") 
 
+
+# each geom_*() function has a different set of aesthetic properties
 # e.g., 'fill' aethetics 
 #     does not work with geom_point()
 ggplot( data = mpg,
@@ -169,6 +215,7 @@ ggplot( data = mpg,
   geom_point(fill = "blue")
 
 
+# setting size aesthetic, manually
 ggplot( data = mpg,
         mapping = 
           aes(x = displ, 
@@ -182,7 +229,8 @@ ggplot( data = mpg,
   geom_point(size = 1) # default
 
 
-# less appealing than color!
+# alpha aesthetic mapping, which is
+# less visually appealing than color one!
 ggplot(data = mpg,
        mapping = 
          aes(x = displ, 
@@ -190,6 +238,9 @@ ggplot(data = mpg,
              alpha = class) ) + 
   geom_point() 
 
+
+
+# clutter is your enemy ---------------------------------------------------
 
 
 ggplot( data = mpg,
